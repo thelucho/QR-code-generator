@@ -43,5 +43,29 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  chakra: {
+    extendTheme: {
+      colors: {
+        transparent: "transparent",
+        black: "#000",
+        white: "#fff",
+        gray: {
+          50: "#f7fafc",
+          100: "#EDF2F7",
+          200: "#E2E8F0",
+          400: "#A0AEC0",
+          500: "#718096",
+          900: "#1a202c",
+        },
+        vue: {
+          50: "#E1FBF0",
+          100: "#C0ECDA",
+          400: "#55C392",
+          700: "#1D5E42"
+        }
+      }
+    }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <CStack w="500px">
-      <CBox :p="5" border-width="1px">
+    <CStack w="500px" bg="white">
+      <CBox :p="5" border-width="1px" borderRadius="lg">
         <CHeading text-align="center" mb="4">
           👨‍💻 QR Code Generator
         </CHeading>
@@ -17,11 +17,13 @@
 
         <c-divider border-color="grey" />
 
-        <CText v-if="!showCode" align="center" :mt="4">
-          Not QR code generated yet
-        </CText>
-        <c-spinner v-else-if="loading" color="blue.500" />
-        <vue-qr v-else :text="value"></vue-qr>
+        <CStack d="flex" align-items="center">
+          <CText v-if="!showCode" align="center" :mt="4" color="gray.400">
+            Not QR code generated yet
+          </CText>
+          <c-spinner mt="5" v-else-if="loading" color="green.500" />
+          <vue-qr v-else :text="value"></vue-qr>
+        </CStack>
       </CBox>
     </CStack>
   </div>
@@ -71,10 +73,10 @@ export default {
       this.loading = !this.loading
       this.showCode = false
 
-      setTimeout(() => (this.loading = false), 2000)
+      setTimeout(() => (this.loading = false), 1500)
 
       this.showCode = true
-      this.url = ''
+      this.value = ''
     }
   }
 }
